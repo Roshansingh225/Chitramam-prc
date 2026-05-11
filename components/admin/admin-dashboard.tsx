@@ -195,15 +195,15 @@ export function AdminDashboard({ initialPlayers, initialQuestions }: AdminDashbo
       <GlassPanel className="p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="font-accent text-xs uppercase tracking-[0.32em] text-cyan-100/70">Control Room</p>
+            <p className="font-accent text-xs uppercase tracking-[0.32em] text-amber-100/70">Scorers Desk</p>
             <h1 className="mt-3 font-display text-3xl uppercase tracking-[0.14em] sm:text-5xl">Admin Panel</h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-white/72">
               Add or edit player profiles, upload portraits, refresh stats, and create custom questions for the
               guessing engine.
             </p>
           </div>
-          <div className="rounded-2xl border border-cyan-300/20 bg-cyan-300/10 px-4 py-3 text-sm text-cyan-50">
-            {status || "Changes persist in the local runtime data store."}
+          <div className="rounded-2xl border border-amber-200/20 bg-amber-100/10 px-4 py-3 text-sm text-amber-50">
+            {status || "Changes persist in the local squad data store."}
           </div>
         </div>
       </GlassPanel>
@@ -211,8 +211,8 @@ export function AdminDashboard({ initialPlayers, initialQuestions }: AdminDashbo
       <div className="grid gap-6 xl:grid-cols-[1.1fr,0.9fr]">
         <GlassPanel className="p-5">
           <div className="flex items-center gap-3">
-            <DatabaseZap className="h-5 w-5 text-cyan-100" />
-            <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/70">Player Database</p>
+            <DatabaseZap className="h-5 w-5 text-amber-100" />
+            <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/70">Squad Database</p>
           </div>
 
           <div className="mt-5 flex gap-3">
@@ -235,7 +235,7 @@ export function AdminDashboard({ initialPlayers, initialQuestions }: AdminDashbo
                 onClick={() => setSelectedPlayerId(player.id)}
                 className={`w-full rounded-2xl border px-4 py-3 text-left transition ${
                   selectedPlayerId === player.id
-                    ? "border-cyan-300/35 bg-cyan-300/10 text-white"
+                    ? "border-amber-200/35 bg-amber-100/10 text-white"
                     : "border-white/10 bg-white/5 text-white/70 hover:text-white"
                 }`}
               >
@@ -423,7 +423,7 @@ export function AdminDashboard({ initialPlayers, initialQuestions }: AdminDashbo
                 onClick={() => setSelectedQuestionId(question.id)}
                 className={`w-full rounded-2xl border px-4 py-3 text-left transition ${
                   selectedQuestionId === question.id
-                    ? "border-cyan-300/35 bg-cyan-300/10 text-white"
+                    ? "border-amber-200/35 bg-amber-100/10 text-white"
                     : "border-white/10 bg-white/5 text-white/70 hover:text-white"
                 }`}
               >

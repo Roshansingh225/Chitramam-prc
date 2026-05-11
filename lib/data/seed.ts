@@ -1,3 +1,4 @@
+import ADDITIONAL_PLAYERS from "@/data/additional-players.json";
 import { Player, QuestionDefinition, TeamId } from "@/types";
 import { slugify } from "@/lib/utils";
 
@@ -1359,7 +1360,8 @@ export const SEED_PLAYERS: Player[] = [
         bestPerformance: "99 vs KKR"
       }
     }
-  ])
+  ]),
+  ...(ADDITIONAL_PLAYERS as Player[])
 ];
 
 export const SEED_QUESTIONS: QuestionDefinition[] = [

@@ -92,7 +92,7 @@ export async function dramaticReveal(player: Player) {
               {
                 type: "input_text",
                 text:
-                  "Write a dramatic reveal line for a futuristic cricket guessing game. Keep it to one sentence."
+                  "Write a dramatic reveal line for a cricket stadium guessing game. Keep it to one sentence."
               }
             ]
           },

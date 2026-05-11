@@ -10,25 +10,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#060816",
-        pitch: "#07111f",
-        neonBlue: "#4be1ff",
-        neonGreen: "#71ffbb",
-        neonGold: "#ffd166",
-        neonPink: "#ff4fd8"
+        midnight: "#06140c",
+        pitch: "#b78b56",
+        outfield: "#0f2d1b",
+        pavilion: "#173723",
+        crease: "#f4ebd0",
+        leather: "#8b3b26",
+        sun: "#d7ad57",
+        skyDay: "#9dcae6"
       },
       fontFamily: {
-        display: ["Orbitron", "sans-serif"],
+        display: ["Rajdhani", "sans-serif"],
         body: ["Space Grotesk", "sans-serif"],
         accent: ["Rajdhani", "sans-serif"]
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(255,255,255,0.08), 0 0 30px rgba(75, 225, 255, 0.16)",
-        stadium: "0 40px 120px rgba(6, 8, 22, 0.7)"
+        glow: "0 0 0 1px rgba(244,235,208,0.1), 0 18px 50px rgba(8, 32, 18, 0.45)",
+        stadium: "0 40px 120px rgba(3, 18, 8, 0.65)"
       },
       backgroundImage: {
-        "grid-radial":
-          "radial-gradient(circle at top, rgba(75,225,255,0.18), transparent 35%), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px)"
+        "grass-stripes":
+          "repeating-linear-gradient(90deg, rgba(31,87,51,0.32) 0px, rgba(31,87,51,0.32) 72px, rgba(18,60,35,0.44) 72px, rgba(18,60,35,0.44) 144px)"
       },
       keyframes: {
         floaty: {
@@ -42,12 +44,17 @@ const config: Config = {
         beam: {
           "0%, 100%": { opacity: "0.35" },
           "50%": { opacity: "0.8" }
+        },
+        crowdPulse: {
+          "0%, 100%": { opacity: "0.45" },
+          "50%": { opacity: "0.82" }
         }
       },
       animation: {
         floaty: "floaty 5s ease-in-out infinite",
         "pulse-ring": "pulseRing 2.8s ease-in-out infinite alternate",
-        beam: "beam 4s ease-in-out infinite"
+        beam: "beam 4s ease-in-out infinite",
+        crowd: "crowdPulse 5s ease-in-out infinite"
       }
     }
   },

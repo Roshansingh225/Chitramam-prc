@@ -41,7 +41,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
 
           <div className="relative grid gap-6 lg:grid-cols-[1.15fr,0.85fr]">
             <div>
-              <p className="font-accent text-xs uppercase tracking-[0.32em] text-cyan-100/70">{team.stadium}</p>
+              <p className="font-accent text-xs uppercase tracking-[0.32em] text-amber-100/70">{team.stadium}</p>
               <h1 className="mt-4 font-display text-4xl uppercase tracking-[0.14em] sm:text-6xl">{team.name}</h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/78">{team.strapline}</p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -52,7 +52,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
                   </NeonButton>
                 </Link>
                 <div className="rounded-full border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/75">
-                  <Mic2 className="mr-2 inline h-4 w-4 text-cyan-100" />
+                  <Mic2 className="mr-2 inline h-4 w-4 text-amber-100" />
                   Tap a player card to trigger voice intro
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
               <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 sm:col-span-2">
                 <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">Stadium Mood</p>
                 <p className="mt-3 text-base leading-7 text-white/74">
-                  Neon crowd lights, cinematic player reveals, and squad cards built to feel like a premium IPL game menu.
+                  Grass-toned panels, boundary-rope accents, and squad cards shaped to feel like a premium IPL match centre.
                 </p>
               </div>
             </div>

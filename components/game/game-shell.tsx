@@ -143,7 +143,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
   }
 
   const confidenceLabel =
-    response && `${Math.round(response.confidence * 100)}% signal strength`;
+    response && `${Math.round(response.confidence * 100)}% match confidence`;
 
   return (
     <div className="grid gap-6 xl:grid-cols-[1.15fr,0.85fr]">
@@ -151,20 +151,20 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="font-accent text-xs uppercase tracking-[0.32em] text-cyan-100/70">Neural Guessing Chamber</p>
+              <p className="font-accent text-xs uppercase tracking-[0.32em] text-amber-100/70">Cricket Brain Box</p>
               <h1 className="mt-3 font-display text-3xl uppercase tracking-[0.14em] sm:text-5xl">
                 IPL Mind Reader AI
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/74">
-                Think of any IPL player. I’ll ask one smart cricket question at a time and close in like a
-                futuristic scout reading the match before it unfolds.
+                Think of any IPL player. I’ll ask one smart cricket question at a time and narrow the field the way a
+                sharp captain reads matchups before the next over.
               </p>
             </div>
 
             <button
               type="button"
               onClick={() => setEnabled((value) => !value)}
-              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75 transition hover:text-white"
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-black/15 px-4 py-2 text-sm text-white/75 transition hover:text-white"
             >
               {enabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
               Voice {enabled ? "On" : "Off"}
@@ -172,20 +172,20 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
           </div>
 
           <div className="grid gap-4 lg:grid-cols-[1fr,0.9fr]">
-            <div className="rounded-[30px] border border-cyan-300/15 bg-black/20 p-5">
-              <div className="flex items-center gap-3 text-cyan-50">
+            <div className="rounded-[30px] border border-amber-200/15 bg-black/20 p-5">
+              <div className="flex items-center gap-3 text-amber-50">
                 <BrainCircuit className="h-5 w-5" />
-                <p className="font-accent text-xs uppercase tracking-[0.28em]">Choose your arena</p>
+                <p className="font-accent text-xs uppercase tracking-[0.28em]">Choose your franchise</p>
               </div>
               <div className="mt-4 flex flex-wrap gap-3">
                 <button
                   type="button"
                   onClick={() => changeTeam(undefined)}
-                  className={`rounded-full border px-4 py-2 text-sm transition ${
-                    !teamId
-                      ? "border-cyan-300/40 bg-cyan-300/15 text-white shadow-glow"
+                    className={`rounded-full border px-4 py-2 text-sm transition ${
+                      !teamId
+                      ? "border-amber-200/40 bg-amber-100/10 text-white shadow-glow"
                       : "border-white/10 bg-white/5 text-white/70 hover:text-white"
-                  }`}
+                    }`}
                 >
                   All Teams
                 </button>
@@ -196,7 +196,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                     onClick={() => changeTeam(team.id)}
                     className={`rounded-full border px-4 py-2 text-sm transition ${
                       teamId === team.id
-                        ? "border-cyan-300/40 bg-cyan-300/15 text-white shadow-glow"
+                        ? "border-amber-200/40 bg-amber-100/10 text-white shadow-glow"
                         : "border-white/10 bg-white/5 text-white/70 hover:text-white"
                     }`}
                   >
@@ -207,7 +207,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
             </div>
 
             <div className="rounded-[30px] border border-white/10 bg-white/5 p-5">
-              <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">Live Match Intel</p>
+              <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">Scoreboard</p>
               <div className="mt-4 grid gap-3 text-sm text-white/75 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
                   <p className="text-white/60">Candidate Pool</p>
@@ -223,7 +223,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                 </div>
               </div>
               <p className="mt-4 text-sm text-white/60">
-                Mode: <span className="text-white">{mode === "daily" ? "Daily Quiz" : mode === "random" ? "Random Oracle" : "Classic"}</span>
+                Mode: <span className="text-white">{mode === "daily" ? "Daily Quiz" : mode === "random" ? "Random Player" : "Classic"}</span>
               </p>
             </div>
           </div>
@@ -237,12 +237,12 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                className="rounded-[32px] border border-cyan-300/15 bg-cyan-300/10 p-8"
+                className="rounded-[32px] border border-amber-200/15 bg-amber-100/10 p-8"
               >
-                <div className="flex items-center gap-3 text-cyan-50">
+                <div className="flex items-center gap-3 text-amber-50">
                   <LoaderCircle className="h-5 w-5 animate-spin" />
                   <span className="font-accent text-xs uppercase tracking-[0.28em]">
-                    Reading the field and refining the signal...
+                    Reading form, role, and match clues...
                   </span>
                 </div>
               </motion.div>
@@ -252,14 +252,14 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
-                className="rounded-[34px] border border-cyan-300/20 bg-[linear-gradient(160deg,rgba(75,225,255,0.12),rgba(6,8,22,0.84))] p-8 shadow-stadium"
+                className="rounded-[34px] border border-amber-200/20 bg-[linear-gradient(160deg,rgba(215,173,87,0.12),rgba(7,24,12,0.9))] p-8 shadow-stadium"
               >
                 <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-3 text-cyan-50">
+                  <div className="flex items-center gap-3 text-amber-50">
                     <Radar className="h-5 w-5" />
                     <span className="font-accent text-xs uppercase tracking-[0.32em]">Question {answers.length + 1}</span>
                   </div>
-                  <span className="rounded-full border border-cyan-300/20 bg-black/20 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/70">
+                  <span className="rounded-full border border-amber-200/20 bg-black/20 px-4 py-2 text-xs uppercase tracking-[0.24em] text-white/70">
                     {confidenceLabel}
                   </span>
                 </div>
@@ -275,7 +275,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                       key={answer.value}
                       type="button"
                       onClick={() => handleAnswer(answer.value)}
-                      className="rounded-2xl border border-white/10 bg-black/25 px-4 py-4 text-center font-accent text-xs uppercase tracking-[0.28em] text-white/78 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-cyan-300/10 hover:text-white"
+                      className="rounded-2xl border border-white/10 bg-black/25 px-4 py-4 text-center font-accent text-xs uppercase tracking-[0.28em] text-white/78 transition hover:-translate-y-1 hover:border-amber-200/30 hover:bg-amber-100/10 hover:text-white"
                     >
                       {answer.label}
                     </button>
@@ -292,7 +292,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
               >
                 <div className="flex flex-wrap items-center gap-3 text-amber-100">
                   <Sparkles className="h-5 w-5" />
-                  <span className="font-accent text-xs uppercase tracking-[0.32em]">Final Reveal Sequence</span>
+                  <span className="font-accent text-xs uppercase tracking-[0.32em]">Big Screen Reveal</span>
                 </div>
                 <h2 className="mt-4 max-w-3xl font-display text-3xl uppercase leading-tight tracking-[0.14em] sm:text-5xl">
                   {response.dramaticLine}
@@ -376,8 +376,8 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                 className="rounded-[32px] border border-white/10 bg-white/5 p-8"
               >
                 <div className="flex items-center gap-3 text-white">
-                  <Mic2 className="h-5 w-5 text-cyan-100" />
-                  <p className="font-accent text-xs uppercase tracking-[0.28em]">Warm-up signal</p>
+                  <Mic2 className="h-5 w-5 text-amber-100" />
+                  <p className="font-accent text-xs uppercase tracking-[0.28em]">Toss Briefing</p>
                 </div>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-white/72">
                   Lock a player into your mind, keep the answers honest, and let the AI narrow the field.
@@ -390,12 +390,12 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
 
       <div className="space-y-6">
         <GlassPanel className="p-5">
-          <div className="flex items-center gap-3 text-cyan-50">
+          <div className="flex items-center gap-3 text-amber-50">
             <Radar className="h-5 w-5" />
-            <p className="font-accent text-xs uppercase tracking-[0.3em]">Oracle Radar</p>
+            <p className="font-accent text-xs uppercase tracking-[0.3em]">Shortlist Board</p>
           </div>
           <p className="mt-3 text-sm leading-6 text-white/70">
-            The model blends decision-tree filtering with optional OpenAI rewriting to keep every question crisp and human.
+            The model blends decision-tree filtering with optional OpenAI rewriting to keep every question grounded in cricket logic.
           </p>
           <div className="mt-5 grid gap-3">
             {(response?.candidates ?? activePlayers.slice(0, 5)).slice(0, 5).map((player, index) => (
@@ -404,7 +404,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
                   <p className="text-sm text-white/85">{player.name}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.24em] text-white/45">{player.role}</p>
                 </div>
-                <span className="font-accent text-xs uppercase tracking-[0.22em] text-cyan-100">
+                <span className="font-accent text-xs uppercase tracking-[0.22em] text-amber-100">
                   {index === 0 ? "Hot Lead" : "Tracked"}
                 </span>
               </div>
@@ -415,7 +415,7 @@ export function GameShell({ players, questions, initialTeamId, mode }: GameShell
         <GlassPanel className="p-5">
           <div className="flex items-center gap-3 text-amber-100">
             <Crown className="h-5 w-5" />
-            <p className="font-accent text-xs uppercase tracking-[0.3em]">Mind Reader Notes</p>
+            <p className="font-accent text-xs uppercase tracking-[0.3em]">Clubhouse Notes</p>
           </div>
           <ul className="mt-4 space-y-3 text-sm leading-6 text-white/68">
             <li>Answer with instinct. &quot;Probably&quot; works beautifully when you are not fully certain.</li>

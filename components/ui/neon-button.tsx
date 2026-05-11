@@ -12,10 +12,10 @@ export function NeonButton({ className, variant = "primary", ...props }: NeonBut
       className={cn(
         "rounded-full border px-5 py-3 font-accent text-sm uppercase tracking-[0.28em] transition duration-300",
         variant === "primary" &&
-          "border-cyan-300/40 bg-cyan-300/15 text-white shadow-glow hover:bg-cyan-300/20",
-        variant === "ghost" && "border-white/10 bg-white/5 text-white/85 hover:border-white/30 hover:bg-white/10",
+          "border-amber-200/30 bg-leather/85 text-cream shadow-glow hover:bg-leather/95",
+        variant === "ghost" && "border-white/10 bg-black/15 text-white/85 hover:border-amber-200/25 hover:bg-white/10",
         variant === "success" &&
-          "border-emerald-300/40 bg-emerald-300/15 text-emerald-50 hover:bg-emerald-300/20",
+          "border-emerald-300/30 bg-emerald-700/55 text-emerald-50 hover:bg-emerald-700/70",
         className
       )}
       {...props}

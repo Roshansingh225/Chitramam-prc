@@ -44,7 +44,7 @@ export function PlayerSpotlight({ player, onClose }: PlayerSpotlightProps) {
 
               <div className="flex flex-col gap-6">
                 <div>
-                  <p className="font-accent text-xs uppercase tracking-[0.32em] text-cyan-100/70">{player.teamId.toUpperCase()} Spotlight</p>
+                  <p className="font-accent text-xs uppercase tracking-[0.32em] text-amber-100/70">{player.teamId.toUpperCase()} Player Card</p>
                   <h2 className="mt-2 font-display text-4xl uppercase tracking-[0.16em]">{player.name}</h2>
                   <p className="mt-4 max-w-2xl text-base leading-7 text-white/76">{player.bio}</p>
                 </div>
@@ -58,14 +58,14 @@ export function PlayerSpotlight({ player, onClose }: PlayerSpotlightProps) {
                     `Bowling: ${player.bowlingStyle}`,
                     `Age: ${player.age}`
                   ].map((item) => (
-                    <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
+                    <div key={item} className="rounded-2xl border border-white/10 bg-black/15 px-4 py-3 text-sm text-white/80">
                       {item}
                     </div>
                   ))}
                 </div>
 
-                <div className="rounded-[26px] border border-cyan-300/20 bg-cyan-300/10 p-5">
-                  <div className="flex items-center gap-3 text-cyan-50">
+                <div className="rounded-[26px] border border-amber-200/20 bg-amber-100/10 p-5">
+                  <div className="flex items-center gap-3 text-amber-50">
                     <Trophy className="h-5 w-5" />
                     <p className="font-accent text-xs uppercase tracking-[0.28em]">Achievements</p>
                   </div>
@@ -73,7 +73,7 @@ export function PlayerSpotlight({ player, onClose }: PlayerSpotlightProps) {
                     {player.achievements.map((achievement) => (
                       <span
                         key={achievement}
-                        className="rounded-full border border-cyan-200/20 bg-black/20 px-4 py-2 text-sm text-white/80"
+                        className="rounded-full border border-amber-100/15 bg-black/20 px-4 py-2 text-sm text-white/80"
                       >
                         {achievement}
                       </span>
@@ -82,15 +82,15 @@ export function PlayerSpotlight({ player, onClose }: PlayerSpotlightProps) {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-3">
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-4">
+                  <div className="rounded-[24px] border border-white/10 bg-black/15 p-4">
                     <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">IPL Runs</p>
                     <p className="mt-3 font-display text-3xl">{formatNumber(player.stats.runs)}</p>
                   </div>
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-4">
+                  <div className="rounded-[24px] border border-white/10 bg-black/15 p-4">
                     <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">IPL Wickets</p>
                     <p className="mt-3 font-display text-3xl">{formatNumber(player.stats.wickets)}</p>
                   </div>
-                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-4">
+                  <div className="rounded-[24px] border border-white/10 bg-black/15 p-4">
                     <p className="font-accent text-xs uppercase tracking-[0.28em] text-white/60">Strike Rate</p>
                     <p className="mt-3 font-display text-3xl">{player.stats.strikeRate}</p>
                   </div>

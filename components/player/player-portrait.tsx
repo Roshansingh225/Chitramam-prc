@@ -1,7 +1,12 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
+
+import { useEffect, useState } from "react";
 
 import { UserCircle2 } from "lucide-react";
 
+import { PLAYER_IMAGE_MAP } from "@/lib/data/player-images";
 import { TEAM_MAP } from "@/lib/data/teams";
 import { getInitials } from "@/lib/utils";
 import { Player } from "@/types";
@@ -13,12 +18,22 @@ interface PlayerPortraitProps {
 
 export function PlayerPortrait({ player, className = "" }: PlayerPortraitProps) {
   const team = TEAM_MAP[player.teamId];
+  const imageUrl = player.imageUrl || PLAYER_IMAGE_MAP[player.id];
+  const [hasImageError, setHasImageError] = useState(false);
 
-  if (player.imageUrl) {
+  useEffect(() => {
+    setHasImageError(false);
+  }, [imageUrl, player.id]);
+
+  if (imageUrl && !hasImageError) {
     return (
       <img
-        src={player.imageUrl}
+        src={imageUrl}
         alt={player.name}
+        loading="lazy"
+        decoding="async"
+        referrerPolicy="no-referrer"
+        onError={() => setHasImageError(true)}
         className={`h-full w-full rounded-[28px] object-cover object-top ${className}`}
       />
     );
@@ -39,7 +54,7 @@ export function PlayerPortrait({ player, className = "" }: PlayerPortraitProps) 
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="font-display text-4xl uppercase tracking-[0.18em] text-white/90">{getInitials(player.name)}</p>
-            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">{team.shortName} Hologram Portrait</p>
+            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/60">{team.shortName} Matchday Card</p>
           </div>
           <div
             className="h-10 w-10 rounded-full border border-white/10"

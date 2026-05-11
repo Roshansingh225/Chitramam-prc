@@ -18,13 +18,13 @@ const features = [
   },
   {
     title: "Voice Assistant",
-    description: "Browser-powered player intros and spoken AI questions for a living stadium feel.",
+    description: "Browser-powered player intros and spoken AI questions for a proper live-ground atmosphere.",
     icon: Mic2,
     href: "/play"
   },
   {
     title: "Challenge Your Friends",
-    description: "Pass the device, let someone think of a player, and watch the oracle lock in.",
+    description: "Pass the device, let someone think of a player, and watch the guess narrow like a captain setting a field.",
     icon: Swords,
     href: "/play"
   }
@@ -38,9 +38,9 @@ export function FeatureStrip() {
 
         return (
           <Link key={feature.title} href={feature.href} className="group block">
-            <GlassPanel className="h-full p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30">
+            <GlassPanel className="h-full p-5 transition duration-300 hover:-translate-y-1 hover:border-amber-200/25">
               <div className="flex h-full flex-col gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/25 bg-cyan-300/10 text-cyan-100">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-amber-200/20 bg-leather/60 text-amber-100">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>

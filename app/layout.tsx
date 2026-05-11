@@ -12,7 +12,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "IPL Mind Reader AI",
-  description: "A futuristic Akinator-inspired IPL player guessing experience."
+  description: "A cricket-themed IPL player guessing experience with stadium visuals and matchday energy."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

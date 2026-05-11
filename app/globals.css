@@ -13,9 +13,17 @@ html {
 body {
   @apply bg-midnight font-body text-white antialiased;
   background:
-    radial-gradient(circle at top, rgba(75, 225, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 10%, rgba(255, 79, 216, 0.12), transparent 25%),
-    linear-gradient(180deg, #030614 0%, #060816 55%, #04101e 100%);
+    radial-gradient(circle at top, rgba(215, 173, 87, 0.24), transparent 24%),
+    radial-gradient(circle at 18% 0%, rgba(157, 202, 230, 0.22), transparent 20%),
+    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.09), transparent 16%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(24, 70, 41, 0.34) 0px,
+      rgba(24, 70, 41, 0.34) 84px,
+      rgba(16, 49, 29, 0.48) 84px,
+      rgba(16, 49, 29, 0.48) 168px
+    ),
+    linear-gradient(180deg, #07160d 0%, #0d2818 42%, #123720 100%);
 }
 
 body::before {
@@ -23,16 +31,16 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 96px 96px;
-  mask-image: radial-gradient(circle at center, black, transparent 82%);
+  background:
+    radial-gradient(circle at 50% 110%, rgba(244, 235, 208, 0.18), transparent 32%),
+    linear-gradient(90deg, transparent 49.3%, rgba(244, 235, 208, 0.14) 49.6%, transparent 50.1%),
+    linear-gradient(0deg, transparent 74%, rgba(244, 235, 208, 0.08) 74.4%, transparent 75%);
+  mask-image: radial-gradient(circle at center, black, transparent 84%);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(75, 225, 255, 0.4) transparent;
+  scrollbar-color: rgba(215, 173, 87, 0.42) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -40,13 +48,17 @@ body::before {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(75, 225, 255, 0.26);
+  background: rgba(215, 173, 87, 0.28);
   border-radius: 9999px;
 }
 
 @layer components {
   .glass-panel {
-    @apply rounded-[28px] border border-white/10 bg-white/10 shadow-glow backdrop-blur-2xl;
+    @apply rounded-[28px] border shadow-glow backdrop-blur-xl;
+    border-color: rgba(244, 235, 208, 0.12);
+    background:
+      linear-gradient(180deg, rgba(17, 53, 31, 0.88), rgba(8, 26, 16, 0.9)),
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 34%);
   }
 
   .section-shell {
@@ -57,14 +69,14 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%);
+    background: linear-gradient(135deg, rgba(244, 235, 208, 0.1), transparent 38%);
     pointer-events: none;
   }
 
   .neon-border {
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-      0 0 30px rgba(75, 225, 255, 0.18);
+      0 0 0 1px rgba(244, 235, 208, 0.09),
+      inset 0 0 0 1px rgba(244, 235, 208, 0.04),
+      0 26px 60px rgba(2, 14, 8, 0.42);
   }
 }
