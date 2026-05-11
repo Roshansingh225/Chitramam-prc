@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 export const rootDir = path.resolve(__dirname, "..");
-export const storageDir = path.join(rootDir, "storage");
+const defaultStorageDir = process.env.VERCEL ? "/tmp/sail-prc-storage" : path.join(rootDir, "storage");
+export const storageDir = process.env.STORAGE_DIR || defaultStorageDir;
 
 dotenv.config({ path: path.join(rootDir, ".env.local") });
 dotenv.config({ path: path.join(rootDir, ".env") });

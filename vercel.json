@@ -1,12 +1,3 @@
 {
-  "experimentalServices": {
-    "frontend": {
-      "routePrefix": "/",
-      "framework": "nextjs"
-    },
-    "excel": {
-      "entrypoint": "services/excel",
-      "routePrefix": "/_excel"
-    }
-  }
+  "framework": "nextjs"
 }
