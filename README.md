@@ -1,52 +1,59 @@
-# IPL Mind Reader AI
+# SAIL PRC Automation
 
-A futuristic IPL player guessing web app inspired by Akinator, built with Next.js, React, Tailwind CSS, Framer Motion, and Three.js.
+Full-stack web app for generating SAIL Purchase Department PRC documents from uploaded Excel price sheets and optional previous PRC references.
 
-## Highlights
+## Stack
 
-- Full-screen neon stadium atmosphere with a live 3D scene
-- Team hubs for CSK, RCB, MI, GT, KKR, SRH, RR, PBKS, LSG, and DC
-- Akinator-style questioning flow powered by a decision-tree engine
-- Optional OpenAI question rewriting and reveal lines with `OPENAI_API_KEY`
-- Browser speech synthesis for player intros and spoken questions
-- Dramatic reveal card with stats, achievements, and crowd-style audio
-- File-backed admin panel for editing players and custom questions
+- Next.js, Tailwind CSS, shadcn-style components, Framer Motion
+- Node.js + Express API
+- Python Excel microservice with pandas/openpyxl
+- Gemini API for official procurement drafting
+- DOCX export with `docx`, PDF export with `pdf-lib`
+- Optional Supabase Auth, PostgreSQL history, and Supabase Storage exports
 
-## Getting Started
+## Local Setup
 
 ```bash
 npm install
+cp .env.example .env.local
+```
+
+Set `GEMINI_API_KEY` in `.env.local`. For Python, either install:
+
+```bash
+python3 -m pip install -r services/excel/requirements.txt
+```
+
+or set `PYTHON_BIN` to a Python that already has pandas and openpyxl.
+
+Run all services:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open `http://localhost:3000/dashboard`.
 
-## Environment Variables
+## Workflow
 
-Create a `.env.local` file if you want OpenAI-powered question phrasing:
+1. Upload `.xlsx` price sheet and optional previous `.docx` PRC.
+2. Python extracts PR metadata, item table, L1 prices, negotiated prices, savings, deviations, allowable range, and vendor status.
+3. Gemini drafts formal PRC language from structured data.
+4. Backend enforces calculated values and guards against unsupported AI claims.
+5. User edits generated PRC note.
+6. Export official-style DOCX and PDF.
+
+## Environment
 
 ```bash
-OPENAI_API_KEY=your_key_here
-OPENAI_MODEL=gpt-4.1-mini
+NEXT_PUBLIC_API_BASE_URL=http://localhost:4000/api
+API_PORT=4000
+EXCEL_SERVICE_URL=http://localhost:5055
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-2.5-flash
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+SUPABASE_BUCKET=prc-documents
 ```
 
-If no key is provided, the app uses the built-in deterministic question engine only.
-
-## Project Structure
-
-```text
-app/                  Next.js app router pages and API routes
-components/           Reusable UI, game, player, and layout components
-hooks/                Browser speech and reveal audio helpers
-lib/data/             Teams and seeded IPL player/question data
-lib/game/             Guessing engine and ranking logic
-lib/server/           File-backed runtime store and OpenAI helpers
-data/runtime/         Mutable JSON store used by the admin panel
-types/                Shared TypeScript models
-```
-
-## Notes
-
-- The seed roster is meant to power the experience out of the box and can be edited from `/admin`.
-- Player portraits fall back to hologram cards until you upload real images from the admin panel.
-- The runtime data store writes to local JSON files, which is great for local prototyping and demo deployments.
+The app works with local JSON/file storage by default. Add Supabase variables to persist records in PostgreSQL and mirror exports to Supabase Storage.

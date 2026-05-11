@@ -1,82 +1,95 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  color-scheme: dark;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  @apply bg-midnight font-body text-white antialiased;
-  background:
-    radial-gradient(circle at top, rgba(215, 173, 87, 0.24), transparent 24%),
-    radial-gradient(circle at 18% 0%, rgba(157, 202, 230, 0.22), transparent 20%),
-    radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.09), transparent 16%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(24, 70, 41, 0.34) 0px,
-      rgba(24, 70, 41, 0.34) 84px,
-      rgba(16, 49, 29, 0.48) 84px,
-      rgba(16, 49, 29, 0.48) 168px
-    ),
-    linear-gradient(180deg, #07160d 0%, #0d2818 42%, #123720 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 110%, rgba(244, 235, 208, 0.18), transparent 32%),
-    linear-gradient(90deg, transparent 49.3%, rgba(244, 235, 208, 0.14) 49.6%, transparent 50.1%),
-    linear-gradient(0deg, transparent 74%, rgba(244, 235, 208, 0.08) 74.4%, transparent 75%);
-  mask-image: radial-gradient(circle at center, black, transparent 84%);
+@theme {
+  --color-sail-ink: #061a33;
+  --color-sail-navy: #0b2f57;
+  --color-sail-blue: #145da0;
+  --color-sail-steel: #526170;
+  --color-sail-mist: #eef3f7;
+  --color-sail-line: #d5dde6;
+  --color-sail-copper: #b7791f;
+  --shadow-panel: 0 18px 55px rgba(6, 26, 51, 0.12);
 }
 
 * {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(215, 173, 87, 0.42) transparent;
+  box-sizing: border-box;
 }
 
-*::-webkit-scrollbar {
-  width: 10px;
+html {
+  background: #eef3f7;
 }
 
-*::-webkit-scrollbar-thumb {
-  background: rgba(215, 173, 87, 0.28);
-  border-radius: 9999px;
+body {
+  margin: 0;
+  color: #061a33;
+  background:
+    linear-gradient(180deg, rgba(238, 243, 247, 0.96), rgba(255, 255, 255, 0.94)),
+    radial-gradient(circle at top left, rgba(20, 93, 160, 0.12), transparent 34%),
+    #eef3f7;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer components {
-  .glass-panel {
-    @apply rounded-[28px] border shadow-glow backdrop-blur-xl;
-    border-color: rgba(244, 235, 208, 0.12);
-    background:
-      linear-gradient(180deg, rgba(17, 53, 31, 0.88), rgba(8, 26, 16, 0.9)),
-      radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 34%);
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .section-shell {
-    @apply glass-panel relative overflow-hidden;
-  }
+button,
+input,
+textarea {
+  font: inherit;
+}
 
-  .section-shell::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(244, 235, 208, 0.1), transparent 38%);
-    pointer-events: none;
-  }
+.document-paper {
+  font-family: "Times New Roman", Times, serif;
+}
 
-  .neon-border {
-    box-shadow:
-      0 0 0 1px rgba(244, 235, 208, 0.09),
-      inset 0 0 0 1px rgba(244, 235, 208, 0.04),
-      0 26px 60px rgba(2, 14, 8, 0.42);
+@keyframes steel-scan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes meter-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes rail-pulse {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.steel-scan {
+  animation: steel-scan 2.8s ease-in-out infinite;
+}
+
+.meter-shimmer::after {
+  animation: meter-shimmer 2.4s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.68), transparent);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateX(-120%);
+}
+
+.rail-pulse {
+  animation: rail-pulse 1.8s ease-in-out infinite;
 }
