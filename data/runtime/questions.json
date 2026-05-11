@@ -1,0 +1,362 @@
+[
+  {
+    "id": "role-batsman",
+    "prompt": "Is your player mainly known as a batsman?",
+    "description": "Separates specialist batters from bowlers and all-rounders.",
+    "category": "role",
+    "priority": 5,
+    "rule": {
+      "field": "role",
+      "operator": "equals",
+      "value": "Batsman"
+    }
+  },
+  {
+    "id": "role-bowler",
+    "prompt": "Is your player primarily a bowler?",
+    "description": "Checks if the player is first picked for bowling impact.",
+    "category": "role",
+    "priority": 5,
+    "rule": {
+      "field": "role",
+      "operator": "equals",
+      "value": "Bowler"
+    }
+  },
+  {
+    "id": "role-keeper",
+    "prompt": "Does your player keep wickets?",
+    "description": "Helps isolate wicketkeeper-batters quickly.",
+    "category": "role",
+    "priority": 5,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "wicketkeeper"
+    }
+  },
+  {
+    "id": "role-allrounder",
+    "prompt": "Is your player a genuine all-rounder?",
+    "description": "Useful for hybrid players who contribute in both innings.",
+    "category": "role",
+    "priority": 5,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "all-rounder"
+    }
+  },
+  {
+    "id": "identity-foreign",
+    "prompt": "Is your player an overseas star?",
+    "description": "Splits Indian players from overseas players.",
+    "category": "identity",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "foreign"
+    }
+  },
+  {
+    "id": "identity-lefty",
+    "prompt": "Is your player left-handed with the bat?",
+    "description": "A quick batting-style divider.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "battingStyle",
+      "operator": "contains",
+      "value": "Left-hand"
+    }
+  },
+  {
+    "id": "style-pace",
+    "prompt": "Is he known more for pace bowling than spin?",
+    "description": "Checks if the player is a pace option.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "pace"
+    }
+  },
+  {
+    "id": "style-spin",
+    "prompt": "Is your player known for spin bowling?",
+    "description": "Checks for finger spin or wrist spin specialists.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "spin"
+    }
+  },
+  {
+    "id": "style-opener",
+    "prompt": "Does your player usually bat in the top order?",
+    "description": "Separates openers from middle-order anchors and finishers.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "opener"
+    }
+  },
+  {
+    "id": "style-finisher",
+    "prompt": "Is he famous for finishing chases or death-over hitting?",
+    "description": "Useful for late-order power hitters.",
+    "category": "career",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "finisher"
+    }
+  },
+  {
+    "id": "style-aggressive",
+    "prompt": "Is your player known for aggressive batting intent?",
+    "description": "Helps detect explosive personalities.",
+    "category": "style",
+    "priority": 3,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "aggressive"
+    }
+  },
+  {
+    "id": "style-anchor",
+    "prompt": "Would fans describe him as a calm anchor type batter?",
+    "description": "Useful for composed run accumulators.",
+    "category": "style",
+    "priority": 3,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "anchor"
+    }
+  },
+  {
+    "id": "career-captain",
+    "prompt": "Has your player captained an IPL side?",
+    "description": "Isolates team leaders and former captains.",
+    "category": "career",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "captain"
+    }
+  },
+  {
+    "id": "career-india-captain",
+    "prompt": "Has your player captained India?",
+    "description": "Highly selective legacy marker.",
+    "category": "career",
+    "priority": 5,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "india-captain"
+    }
+  },
+  {
+    "id": "career-legend",
+    "prompt": "Is your player already considered an IPL legend?",
+    "description": "Pulls out iconic long-term stars.",
+    "category": "career",
+    "priority": 3,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "legend"
+    }
+  },
+  {
+    "id": "bowling-death",
+    "prompt": "Would you associate him with bowling the death overs?",
+    "description": "Narrows fast bowlers who close out innings.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "death-bowler"
+    }
+  },
+  {
+    "id": "bowling-powerplay",
+    "prompt": "Is he especially dangerous with the new ball?",
+    "description": "Identifies powerplay bowling specialists.",
+    "category": "style",
+    "priority": 3,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "powerplay-specialist"
+    }
+  },
+  {
+    "id": "career-youngster",
+    "prompt": "Is your player still seen as a young rising star?",
+    "description": "Separates established veterans from younger names.",
+    "category": "identity",
+    "priority": 3,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "youngster"
+    }
+  },
+  {
+    "id": "team-csk",
+    "prompt": "Does your player represent CSK?",
+    "description": "Direct team check for Chennai players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "csk"
+    }
+  },
+  {
+    "id": "team-rcb",
+    "prompt": "Does your player play for RCB?",
+    "description": "Direct team check for Bengaluru players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "rcb"
+    }
+  },
+  {
+    "id": "team-mi",
+    "prompt": "Is your player part of Mumbai Indians?",
+    "description": "Direct team check for Mumbai players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "mi"
+    }
+  },
+  {
+    "id": "team-kkr",
+    "prompt": "Does he belong to KKR?",
+    "description": "Direct team check for Kolkata players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "kkr"
+    }
+  },
+  {
+    "id": "team-srh",
+    "prompt": "Is your player from Sunrisers Hyderabad?",
+    "description": "Direct team check for Hyderabad players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "srh"
+    }
+  },
+  {
+    "id": "team-rr",
+    "prompt": "Is your player with Rajasthan Royals?",
+    "description": "Direct team check for Jaipur's side.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "rr"
+    }
+  },
+  {
+    "id": "team-pbks",
+    "prompt": "Would you find him in the PBKS squad?",
+    "description": "Direct team check for Punjab players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "pbks"
+    }
+  },
+  {
+    "id": "team-lsg",
+    "prompt": "Does your player play for LSG?",
+    "description": "Direct team check for Lucknow players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "lsg"
+    }
+  },
+  {
+    "id": "team-dc",
+    "prompt": "Is your player from Delhi Capitals?",
+    "description": "Direct team check for Delhi players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "dc"
+    }
+  },
+  {
+    "id": "team-gt",
+    "prompt": "Does your player represent Gujarat Titans?",
+    "description": "Direct team check for Gujarat players.",
+    "category": "team",
+    "priority": 3,
+    "rule": {
+      "field": "teamId",
+      "operator": "equals",
+      "value": "gt"
+    }
+  },
+  {
+    "id": "style-mystery",
+    "prompt": "Is he famous for mystery spin or unusual variations?",
+    "description": "Targets deceptive spin bowlers.",
+    "category": "style",
+    "priority": 4,
+    "rule": {
+      "field": "traits",
+      "operator": "includes",
+      "value": "mystery-spinner"
+    }
+  },
+  {
+    "id": "identity-under-30",
+    "prompt": "Is your player under 30 years old?",
+    "description": "A useful age-based split once style is known.",
+    "category": "identity",
+    "priority": 2,
+    "rule": {
+      "field": "age",
+      "operator": "lt",
+      "value": 30
+    }
+  }
+]
