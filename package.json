@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently -n web,api,excel -c cyan,blue,green \"next dev -p 3000\" \"tsx server/index.ts\" \"node scripts/run-excel-service.mjs\"",
+    "dev": "next dev -p 3000",
     "dev:web": "next dev -p 3000",
-    "dev:api": "tsx server/index.ts",
-    "dev:excel": "node scripts/run-excel-service.mjs",
+    "dev:api": "next dev -p 3000",
+    "dev:excel": "next dev -p 3000",
     "build": "next build",
-    "start": "concurrently -n web,api,excel -c cyan,blue,green \"next start -p 3000\" \"node dist/server/index.js\" \"node scripts/run-excel-service.mjs\"",
+    "start": "next start -p 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },
